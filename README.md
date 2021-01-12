@@ -9,7 +9,7 @@ A Spring Boot application to calculate value at risk (VAR) using historical meth
 ## How to run the application
 To run this project
 1. Clone repository 
-2. Run _mvn clean install_, to pull all the dependencies from the maven repository.
+2. Run **_mvn clean install_**, to pull all the dependencies from the maven repository.
 3. Configure the confidence level in the program arguments eg.
 ![Screenshot](src/main/resources/args.png)
 4. Press run on the main class.
