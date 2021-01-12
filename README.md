@@ -17,10 +17,10 @@ To run this project
 
 ## Using the application 
 To calculate VAR, there are 2 APIs provided. 
-* API 1: is to calculate VAR for a single trade.
+* GET ("/var/singleTrade"): is to calculate VAR for a single trade.
     * Input: A list of historical data with double values.
     * Output: Returns the var in double value.
-* API 2: is to calculate VAR for a portfolio.
+* GET("/var/portfolio"): is to calculate VAR for a portfolio.
     * Input: A list of all historical data for each trade with double values.
     * Output: Returns the var in double value.
 
