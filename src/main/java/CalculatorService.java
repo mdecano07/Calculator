@@ -8,7 +8,7 @@ import java.util.List;
 @Component
 public class CalculatorService {
 
-    //historical values for a single trade.
+    //calculates var using historical values for a single trade
     public double calculateVar(Request request) {
         //List<Double> values, double percentile
         List historicalValues = request.getHistoricData();
@@ -17,19 +17,20 @@ public class CalculatorService {
         return (double) historicalValues.get(index - 1);
     }
 
-    //a portfolio consists of multiple trades, thus you will have multiple lots of historical values
+    //calculates var for multiple trades, with multiple historical values
     public double calculatePortfolioVar(List<List<Double>> historicalValues, double confidenceLevel){
         var historicData = getPortfolioHistoricData(historicalValues);
         var request = new Request(historicData,confidenceLevel);
         return calculateVar(request);
     }
 
+    //calculates the sum of historical value
      private List<Double> getPortfolioHistoricData(List<List<Double>> historicalValues) {
         var portfolioHistoricData = new ArrayList<Double>();
 
         historicalValues.forEach(historicalValue -> {
             for (int i = 0; i < historicalValue.size(); i++) {
-                if (i <= portfolioHistoricData.size()){
+                if (historicalValue.size() > portfolioHistoricData.size()){
                     portfolioHistoricData.add(i,historicalValue.get(i));
                 } else {
                     var value = historicalValue.get(i) + portfolioHistoricData.get(i);
